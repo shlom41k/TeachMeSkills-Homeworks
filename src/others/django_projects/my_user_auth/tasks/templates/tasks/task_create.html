@@ -1,0 +1,20 @@
+{% extends "templates/base.html" %}
+
+
+{% block title %} Task {% endblock %}
+
+{% block content %}
+
+<h3>Создание новой задачи</h3>
+
+<form action="{% url 'task_create' %}" method="POST">
+    {% csrf_token %}
+
+    <p>Описание задачи: <br>{{ form.name }}</p>
+    <p>Исполнитель: {{ form.executor }}</p>
+
+    <p><input type="submit" value="Cоздать задачу"></p>
+</form>
+<hr>
+
+{% endblock %}

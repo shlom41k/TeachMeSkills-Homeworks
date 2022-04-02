@@ -1,0 +1,16 @@
+{% extends 'templates/base.html' %}
+
+{% block title %}
+    <h3>Task 19.2</h3>
+{% endblock %}
+
+
+{% block content %}
+
+<p>Current data: {{ data }}</p>
+
+{% if data|slice:"-5:" == "01-01" %}
+    <p><b>HAPPY NEW {{ data|slice:":4" }} YEAR!</b></p>
+{% endif %}
+
+{% endblock %}

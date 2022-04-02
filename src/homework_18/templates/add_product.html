@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ "New product" }}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='add_product.css') }}">
+</head>
+<body>
+
+    <table id="main" class="table1">
+    <tr>
+        <th>ID</th>
+        <th>Product name</th>
+        <th>Product price</th>
+        <th>Amount</th>
+        <th>Comment</th>
+    </tr>
+
+    <tr>
+        <td>{{ "ID" }}</td>
+        <form id="add_form" class="form_product" action="{{ url_add }}" method="post">
+            <td><div><input class="inp_name" name="name" id="name" value="{{ name }}" placeholder="Input name here (exs: Milk)"></div></td>
+            <td><div><input class="inp_price" name="price" id="price" value="{{ price }}" placeholder="Input price here (exs: 2.56)"></div></td>
+            <td><div><input class="inp_amount" name="amount" id="amount" value="{{ amount }}" placeholder="Input amount here (exs: 11)"></div></td>
+            <td><div><input class="inp_comment" name="comment" id="comment" value="{{ comment }}" placeholder="Input comment here (exs: Very tasty milk)"></div></td>
+        </form>
+    </tr>
+    </table>
+
+    <table id="line" class="table3">
+        <tr><td>{{ message }}</td></tr>
+    </table>
+
+    <table id="btn" class="table2">
+        <tr>
+        <td><a href="{{ url_home }}">
+                <button type="submit" id="home_btn" class="search" style="height:30px; width:70px">Home</button>
+        </a></td>
+
+        <td>{{""}}</td>
+
+        <td>
+            <button type="submit" id="delete_btn" class="form_product" form="add_form" style="height:30px; width:70px">Add</button>
+        </td>
+        </tr>
+    </table>
+
+
+
+</body>
+</html>

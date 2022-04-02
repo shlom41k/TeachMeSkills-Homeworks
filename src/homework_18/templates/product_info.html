@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ "Product: " + name }}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='product_info.css') }}">
+</head>
+
+<body>
+
+    {% set url_edit = url_edit + id %}
+    {% set url_delete = url_delete + id %}
+
+    <table id="main" class="table1">
+    <tr>
+        <th>ID</th>
+        <th>Product name</th>
+        <th>Product price</th>
+        <th>Amount</th>
+        <th>Comment</th>
+    </tr>
+    <tr>
+        <td>{{ id }}</td>
+        <td contenteditable="true">{{ name }}</td>
+        <td contenteditable="true">{{ price }}</td>
+        <td contenteditable="true">{{ amount }}</td>
+        <td contenteditable="true">{{ comment }}</td>
+    </tr>
+    </table>
+
+    <table id="btn" class="table2">
+        <tr>
+        <td><a href="{{ url_home }}">
+                <button type="submit" id="home_btn" class="search" style="height:30px; width:70px">Home</button>
+        </a></td>
+
+        <td><a href="{{ url_edit }}">
+                <button type="submit" id="edit_btn" class="search" style="height:30px; width:70px">Edit</button>
+        </a></td>
+
+        <td><a href="{{ url_delete }}">
+                <button type="submit" id="delete_btn" class="search" style="height:30px; width:70px">Delete</button>
+        </a></td>
+        </tr>
+    </table>
+
+</body>
+</html>

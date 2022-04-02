@@ -1,0 +1,34 @@
+{% extends "hw_24/base.html" %}
+{% load static %}
+
+
+{% block title %}
+    Picture
+{% endblock %}
+
+
+{% block content %}
+    <h3>Picture size {{ form.weight.value }} x {{ form.height.value }}</h3>
+
+    <p>Link: <a href="{{ form.link.value }}">{{ form.link.value }}</a></p>
+
+    <p><img src="{{ form.link.value }}"></p>
+
+    <form action="{% url 'image' %}" method="POST">
+        {% csrf_token %}
+
+        {{ form.link.as_hidden }}
+        {{ form.height.as_hidden }}
+        {{ form.weight.as_hidden }}
+
+        <p>
+            <label>Input comment: </label>{{ form.comment }}<br>
+        </p>
+
+        <input type="submit" value="Cохранить">
+    </form>
+
+    <p>
+        <a href="{% url 'home' %}"><button type="submit"> Home </button></a>
+    </p>
+{% endblock %}

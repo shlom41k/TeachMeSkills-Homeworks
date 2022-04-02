@@ -1,0 +1,13 @@
+{% extends "templates/base.html" %}
+
+{% block title %} Order info {% endblock %}
+
+{% block content %}
+
+<div class="badge bg-primary text-nowrap" style="width: 500px;">
+    <h4> Стоимость перелёта равна: {{ total }}$ </h4>
+</div>
+
+<p> <h6><a href="{% url 'order' %}"> Вернуться к форме заказа </a></h6> <p>
+
+{% endblock %}

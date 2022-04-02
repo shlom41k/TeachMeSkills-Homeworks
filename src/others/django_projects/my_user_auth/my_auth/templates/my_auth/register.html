@@ -1,0 +1,27 @@
+{% extends "templates/base.html" %}
+
+
+{% block title %} Registration {% endblock %}
+
+{% block content %}
+<div class="text-center">
+    <form class="form-signin" method="POST" action="{% url 'register' %}">
+        {% csrf_token %}
+
+        <h1 class="h3 mb-3 mt-3 mx-auto font-weight-normal">Для регистрации укажите имя пользователя и пароль</h1>
+
+        {% for field in form %}
+        <p>
+            <label for="{{ field.label }}" class="sr-only">{{ field.label }}</label>
+            {{ field }}
+
+            {% for error in field.errors %}
+                {{ error }}
+            {% endfor %}
+        </p>
+        {% endfor %}
+
+        <button class="btn mt-2 btn-lg btn-primary btn-block" type="submit">Регистрация</button>
+    </form>
+</div>
+{% endblock %}

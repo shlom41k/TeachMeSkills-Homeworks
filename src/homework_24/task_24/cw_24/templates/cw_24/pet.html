@@ -1,0 +1,31 @@
+{% extends "cw_24/base.html" %}
+
+
+{% block title %}
+    Your pet
+{% endblock %}
+
+
+{% block content %}
+    <h1>This is your fighter. It's a {{ pet }}</h1>
+
+    <p>URL: <a href="{{ pic_url }}">{{ pic_url }}</a></p>
+    <p><img src="{{ pic_url }}" width="1024" height="768"></p>
+
+    <p>
+        <a href="{% url 'pets' %}"><button type="submit" style="height:25px; width:65px">Home</button></a>
+        <a href=""><button type="submit" style="height:25px; width:65px">Refresh</button></a>
+    </p>
+
+        <form action="{% url 'save_image' %}" method="POST">
+            {% csrf_token %}
+
+            {{ form.url.as_hidden }}
+            {{ form.type.as_hidden }}
+            {{ form.pic_type.as_hidden }}
+
+            <input type="submit" style="height:25px; width:65px" value="Save">
+        </form>
+
+
+{% endblock %}

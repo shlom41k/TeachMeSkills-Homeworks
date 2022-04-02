@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Products</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='color_table.css') }}">
+</head>
+
+<body style="background-color:#E7EDF5;">
+
+    <header>
+      <div class="container">
+          <h1 class="logo">Products table</h1>
+      </div>
+    </header>
+
+    <table>
+        <tr>
+            <th>№</th><th>ID</th><th>Name</th><th>Price, BYN</th><th>Amount, pc.</th><th>Comment</th><th>Select</th>
+        </tr>
+        {% for product in products %}
+        {% set ind, id, name, price, amount, comment = product[0], product[1], product[2], product[3], product[4], product[5] %}
+        {% set url_cur = url_prod + id %}
+        <tr>
+            <td>{{ ind }}</td><td>{{ id }}</td><td><a href="{{ url_cur }}">{{ name }}</a></td><td>{{ price }}</td><td>{{ amount }}</td><td>{{ comment }}</td><td>
+            <a href="{{ url_cur }}">
+                <button type="submit" id="info_btn" class="search" style="height:25px; width:65px">Info</button>
+            </a>
+        </tr>
+        {% endfor %}
+        <tr><td>{{ "" }}</td><td>{{ "" }}</td><td>{{ "" }}</td><td>{{ "" }}</td><td>{{ "" }}</td><td>{{ "" }}</td><td></tr>
+        <tr><td colspan="3">{{ "Total products: "}}{{ l }}</td><td>{{ total_sum }}</td><td>{{ total_cnt }}</td>
+            <td>
+                <a href="{{ url_add }}">
+                    <button type="submit" id="add_btn" class="btn_add">Add new product</button>
+                </a>
+            </td>
+        </tr>
+    </table>
+
+    <h2>
+      <div class="container">
+          <h2 class="logo">Last update: {{ date }}</h2>
+      </div>
+    </h2>
+
+</body>
+</html>

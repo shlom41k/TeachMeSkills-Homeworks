@@ -1,0 +1,59 @@
+{% extends "templates/base.html" %}
+
+
+{% block title %} Task {% endblock %}
+
+{% block content %}
+
+<h3>{{ task.name }}</h3>
+
+<div id="tasks-detail">
+    <p>Создатель: {{ task.creator }}</p>
+    <p>Исполнитель: {{ task.executor }}</p>
+    <p>Дата создания: {{ task.date_of_creating }}</p>
+    <p>Статус: {{ task.status }}</p>
+</div>
+
+<!--Кнопка завершения задачи-->
+{% if task.status != task.CLOSED %}
+    <form action="" method="POST">
+        {% csrf_token %}
+
+        {% if task.creator == user %}
+            <p><input type="submit" value="Завершить задачу"></p>
+        {% elif task.status == task.CREATED %}
+            <p><input type="submit" value="Взять в работу"></p>
+        {% elif task.status == task.IN_WORK %}
+            <p><input type="submit" value="Отправить на проверку"></p>
+        {% endif %}
+    </form>
+
+{% endif %}
+<hr>
+
+<h4>Комментарии</h4>
+<div id="task-comments">
+    {% for comment in task.comments.all %}
+        <ul>
+            <li>
+                {{ comment.date }}
+                <b>{{ comment.user }}:</b>
+                {{ comment.text }}
+            </li>
+        </ul>
+    {% endfor %}
+
+    {% if task.status != task.CLOSED %}
+        <form action="" method="POST">
+            {% csrf_token %}
+            <p>{{ comment_form.text }}</p>
+            <p><input type="submit" value="Добавить комментарий"></p>
+        </form>
+    {% endif %}
+</div>
+
+<!--{% for task in user.created_tasks.all %}-->
+<!--    {{ task }}-->
+<!--{% endfor %}-->
+
+{% endblock %}

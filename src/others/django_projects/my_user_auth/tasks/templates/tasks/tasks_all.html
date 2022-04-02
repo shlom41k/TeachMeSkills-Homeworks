@@ -1,0 +1,41 @@
+{% extends "templates/base.html" %}
+
+
+{% block title %} Tasks {% endblock %}
+
+{% block content %}
+
+<h2>Создание задачи</h2>
+<p><a href="{% url 'task_create' %}"><button type="submit"> Create task </button></a></p>
+<hr>
+
+<h2>Назначенные Вами задачи</h2>
+<div id="creating-tasks">
+    {% for task in created_tasks %}
+        <p>
+            Задача: <a href="{{ task.get_url }}">{{ task.name }}</a><br>
+            Создатель: {{ task.creator }}<br>
+            Исполнитель: {{ task.executor }}<br>
+            Дата создания: {{ task.date_of_creating }}<br>
+            Статус: {{ task.status }}<br>
+            Последний комментарий: {{ task.comments.all.last|default:"Нет комментариев." }}<br>
+        </p>
+    {% endfor %}
+</div>
+<hr>
+
+<h2>Исполняемые Вами задачи</h2>
+<div id="executing-tasks">
+    {% for task in executing_tasks %}
+        <p>
+            Задача: <a href="{{ task.get_url }}">{{ task.name }}</a><br>
+            Создатель: {{ task.creator }}<br>
+            Исполнитель: {{ task.executor }}<br>
+            Дата создания: {{ task.date_of_creating }}<br>
+            Статус: {{ task.status }}<br>
+            Последний комментарий: {{ task.comments.all.last|default:"Нет комментариев." }}<br>
+        </p>
+    {% endfor %}
+</div>
+
+{% endblock %}

@@ -1,0 +1,25 @@
+{% extends "hw_24/base.html" %}
+
+
+{% block title %}
+    Nature Pictures
+{% endblock %}
+
+
+{% block content %}
+    <h1>Choose picture size</h1>
+
+    <form action="{% url 'home' %}" method="POST">
+        {% csrf_token %}
+
+        <p>
+            <label>Введите ширину изображения: </label>{{ form.weight }}<br>
+        </p>
+
+        <p>
+            <label>Введите высоту изображения: </label>{{ form.height }}<br>
+        </p>
+
+        <input type="submit" value="Получить">
+    </form>
+{% endblock %}

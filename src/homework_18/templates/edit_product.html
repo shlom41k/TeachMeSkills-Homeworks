@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ "Product: " + name }}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='edit_product.css') }}">
+</head>
+<body>
+
+    {% set url_prod = url_prod + id %}
+    {% set url_edit = url_edit + id %}
+
+    <table id="main" class="table1">
+    <tr>
+        <th>ID</th>
+        <th>Product name</th>
+        <th>Product price</th>
+        <th>Amount</th>
+        <th>Comment</th>
+    </tr>
+
+    <tr>
+        <td>{{ id }}</td>
+        <form id="edit_form" class="form_product" action="{{ url_edit }}" method="post">
+            <td><div><input class="inp_name" name="name" id="name" value="{{ name }}"></div></td>
+            <td><div><input class="inp_price" name="price" id="price" value="{{ price }}"></div></td>
+            <td><div><input class="inp_amount" name="amount" id="amount" value="{{ amount }}"></div></td>
+            <td><div><input class="inp_comment" name="comment" id="comment" value="{{ comment }}"></div></td>
+        </form>
+    </tr>
+    </table>
+
+    <table id="line" class="table3">
+        <tr><td>{{ message }}</td></tr>
+    </table>
+
+    <table id="btn" class="table2">
+        <tr>
+        <td><a href="{{ url_home }}">
+                <button type="submit" id="home_btn" class="search" style="height:30px; width:70px">Home</button>
+        </a></td>
+
+        <td><a href="{{ url_prod }}">
+                <button type="submit" id="back_to_prod_btn" class="search" style="height:30px; width:70px">Back</button>
+        </a></td>
+
+        <td>
+            <button type="submit" id="delete_btn" class="form_product" form="edit_form" style="height:30px; width:70px">Submit</button>
+        </td>
+        </tr>
+    </table>
+
+
+
+</body>
+</html>

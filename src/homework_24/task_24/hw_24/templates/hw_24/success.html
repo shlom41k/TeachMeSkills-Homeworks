@@ -1,0 +1,25 @@
+{% extends "hw_24/base.html" %}
+
+
+{% block title %}
+    Saved
+{% endblock %}
+
+
+{% block content %}
+    <h3>Image successfully saved to database</h3>
+    <p>Link: <a href="{{ link }}">{{ link }}</a></p><br>
+
+    <h4>Send link to e-mail</h4>
+
+    <form action="{% url 'send_to_email' %}" method="POST">
+        {% csrf_token %}
+
+        {{ form.link.as_hidden }}
+        <label>E-mail: </label>{{ form.e_mail }}
+        <input type="submit" value="Send">
+    </form>
+
+    <p><a href="{% url 'home' %}"><button type="submit"> Home </button></a></p>
+
+{% endblock %}
