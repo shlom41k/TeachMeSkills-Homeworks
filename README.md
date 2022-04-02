@@ -31,3 +31,8 @@ The repository contains all the homework assignments completed during the traini
 > [3D Sphere console](https://github.com/shlom41k/TeachMeSkills-Homeworks/tree/main/src/others/3d_sphere)
 > 
 > ![This is an image](https://github.com/shlom41k/TeachMeSkills-Homeworks/blob/main/src/others/3d_sphere/pictures/sphere.PNG)
+
+> [Tic Tac Toe](https://github.com/shlom41k/TeachMeSkills-Homeworks/tree/main/src/others/tictactoe)
+> 
+> ![This is an image](https://github.com/shlom41k/TeachMeSkills-Homeworks/blob/main/src/others/tictactoe/pictures/tt_1.PNG)
+> ![This is an image](https://github.com/shlom41k/TeachMeSkills-Homeworks/blob/main/src/others/tictactoe/pictures/tt_2.PNG)
