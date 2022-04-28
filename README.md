@@ -1,5 +1,15 @@
 # TeachMeSkills-Homeworks
-The repository contains all the homework assignments completed during the training.
+The repository contains all the homework assignments completed during the training at [TeachMeSkills](https://teachmeskills.by/).
+<hr>
+
+## Main tools:
+- ```Python 3.10.2```
+- ```Django 4.0.3```
+- ```PostgreSQL 14.2```
+- ```HTML 5```
+- ```CSS 2.1```
+- ```Bootstrap 5.0```
+- ```Docker 20.10.12```
 
 ## Homeworks
 > [Homework #1](https://github.com/shlom41k/TeachMeSkills-Homeworks/tree/main/src/homework_01) |
